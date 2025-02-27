@@ -12,8 +12,8 @@ from huggingface_hub import InferenceClient
 
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
 st.text('Escoje tu fuente/fuentes de conocimiento:')
-st.text(' · Internet (Por defecto)\n · Una URL concreta (Use Website Input)\n · Un documento (Use file input)\n')
-st.text('Escoje además opcionalmente un Prompt especial (Use special prompt input):')
+st.text(' · Internet (Por defecto)\n · Una URL concreta\n · Un documento\n')
+st.text('Escoje además opcionalmente un prompt especial:')
 
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
@@ -130,24 +130,22 @@ def extract_text_from_csv(file_bytes, encoding='utf-8'):
 
     return text.replace('\t', ' ').replace('\n', ' ')
 
-
-
-url_input = st.checkbox("Use website input")
+url_input = st.checkbox("Utilizar URL (no Internet)")
 url = ""
 if url_input:
     # Input for the website URL
-    url = st.text_input('Enter the website URL (optional): ', '')
+    url = st.text_input('Introduce la URL (opcional): ', '')
 
-file_input = st.checkbox("Use file input")
+file_input = st.checkbox("Utilizar fichero")
 uploaded_file = None
 
 sp_prompt = ""
-prompt_input = st.checkbox("Use special prompt input")
+prompt_input = st.checkbox("Usar prompt especial")
 if prompt_input:
-    sp_prompt = st.selectbox("Special Prompt (Optional):", [
-        "Prompt A: Explain the following with proper details.",
-        "Prompt B: Describe the whole thing in a nutshell.",
-        "Prompt C: How this can be useful for us?"
+    sp_prompt = st.selectbox("Prompt especial (opcional):", [
+        "Prompt A: Intenta resumir tu respuesta en 5 líneas.",
+        "Prompt B: Responde de la forma más extensa posible.",
+        "Prompt C: Por favor, responde en Catalán."
     ])
 
 if file_input:
