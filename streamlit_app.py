@@ -10,7 +10,6 @@ import docx2txt
 import csv
 from huggingface_hub import InferenceClient
 
-load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 
 st.title('👀 AI Playground ')
