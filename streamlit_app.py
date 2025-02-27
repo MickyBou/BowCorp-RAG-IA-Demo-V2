@@ -11,27 +11,10 @@ import csv
 from huggingface_hub import InferenceClient
 
 st.title('👀 AI Playground ')
-
-st.text('Web Scraping with Pandas and Streamlit, Gemini, Mistral, and Phi-3')
-
-# Model = st.selectbox("Select your prefered model:", ["GEMINI", "MISTRAL8X", "PHI-3", "Custom Models"])
+st.text('Web Scraping with Gemini')
 
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
-
-# Button to trigger scraping
-# if st.button('Scrape Data'):
-#     if url:
-#         if 'https://' not in url:
-#             url = 'https://' + url
-#         scraped_data = scrape_data(url)
-#         paragraph = ' '.join(scraped_data['Text'].dropna())
-#         st.write(scraped_data)
-#         st.write(paragraph)
-#    
-#     else:
-#         st.write('Please enter a valid website URL')
-
 
 # Set up the model
 generation_config = {
