@@ -12,8 +12,9 @@ from huggingface_hub import InferenceClient
 
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
 st.text('Escoje tu fuente de conocimiento:')
-st.text('· Internet')
-st.text('· Una URL concreta')
+st.text('
+· Internet
+· Una URL concreta')
 st.text('· Un documento')
 
 Model = "GEMINI"
