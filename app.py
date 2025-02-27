@@ -14,7 +14,7 @@ from huggingface_hub import InferenceClient
 st.set_page_config("BowCorp RAG IA")
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
 st.text('Escoge tu fuente/fuentes de conocimiento:')
-st.text(' · Internet (Por defecto)\n · Una URL concreta\n · Un documento\n')
+st.text(' · Gemini (Por defecto)\n · Una URL concreta\n · Un documento\n')
 st.text('Escoge además opcionalmente un prompt especial.')
 
 Model = "GEMINI"
