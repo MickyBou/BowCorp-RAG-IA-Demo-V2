@@ -136,11 +136,11 @@ def extract_text_from_csv(file_bytes, encoding='utf-8'):
 
     return text.replace('\t', ' ').replace('\n', ' ')
 
-url_input = st.checkbox("Utilizar URL (no Internet)")
+url_input = st.checkbox("Utilizar una  URL concreta")
 url = ""
 if url_input:
     # Input for the website URL
-    url = st.text_input('Introduce la URL (opcional): ', '')
+    url = st.text_input('Introduce la URL: ', '')
 
 file_input = st.checkbox("Utilizar fichero")
 uploaded_file = None
