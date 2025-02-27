@@ -12,9 +12,9 @@ import csv
 from huggingface_hub import InferenceClient
 
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
-st.text('Escoje tu fuente/fuentes de conocimiento:')
+st.text('Escoge tu fuente/fuentes de conocimiento:')
 st.text(' · Internet (Por defecto)\n · Una URL concreta\n · Un documento\n')
-st.text('Escoje además opcionalmente un prompt especial.')
+st.text('Escoge además opcionalmente un prompt especial.')
 
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
@@ -141,9 +141,9 @@ file_input = st.checkbox("Utilizar fichero")
 uploaded_file = None
 
 sp_prompt = ""
-prompt_input = st.checkbox("Usar prompt especial")
+prompt_input = st.checkbox("Usar indicación especial")
 if prompt_input:
-    sp_prompt = st.selectbox("Prompt especial (opcional):", [
+    sp_prompt = st.selectbox("Indicación especial (opcional):", [
         "Prompt A: Intenta resumir tu respuesta en 5 líneas.",
         "Prompt B: Responde de la forma más extensa posible.",
         "Prompt C: Por favor, responde en Catalán."
@@ -151,8 +151,8 @@ if prompt_input:
 
 if file_input:
     # Add file uploader
-    st.write("Upload a PDF, TXT, or DOCX file to extract the text.")
-    uploaded_file = st.file_uploader("Choose a file")
+    st.write("Sube un fichero PDF, TXT, o DOCX para extraer el texto.")
+    uploaded_file = st.file_uploader("Escoge un fichero")
 
     if uploaded_file:
     # Get the file extension
@@ -170,13 +170,13 @@ if file_input:
                 uploaded_file = extract_text_from_csv(uploaded_file.getvalue())
 
             else:
-                st.error("Unsupported file type.")
+                st.error("Formato de fichero erróneo.")
 
 output = ''
 previous_responses = []
 if st.button("Generate"):
     if tkey == '':
-        st.error("Need to input Token or API key.")
+        st.error("Error con la clave API.")
 
     if url:
         if 'https://' not in url:
@@ -216,9 +216,9 @@ if st.button("Generate"):
             # Add select box
             ofType = 'txt'
             #ofType = st.selectbox("Chose an output file type: ", ["TXT", "PY", "HTML"])
-            st.download_button("Download File", data = output, file_name= f"Generated Answer.{ofType}")
+            st.download_button("Descargar fichero", data = output, file_name= f"Generated Answer.{ofType}")
     else:
-        st.error("Please enter a prompt to generate text.")
+        st.error("Por favor entra una consulta para generar una respuesta.")
 
 #st.subheader("[🔗...Visit my GitHub Profile...🔗](https://github.com/NafisRayan)")
 
