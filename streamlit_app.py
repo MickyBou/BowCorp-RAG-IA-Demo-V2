@@ -10,8 +10,11 @@ import docx2txt
 import csv
 from huggingface_hub import InferenceClient
 
-st.title(':crystal_ball: AI Playground ')
-st.text('Web Scraping with Gemini')
+st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
+st.text('Escoje tu fuente de conocimiento:')
+st.text('· Internet')
+st.text('· Una URL concreta')
+st.text('· Un documento')
 
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
