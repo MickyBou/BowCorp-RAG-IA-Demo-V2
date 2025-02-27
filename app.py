@@ -148,7 +148,7 @@ uploaded_file = None
 if file_input:
     # Add file uploader
     st.write("Sube un fichero PDF, TXT, o DOCX para extraer el texto.")
-    uploaded_file = st.file_uploader("Escoge un fichero", accept_multiple_files=True)
+    uploaded_file = st.file_uploader("Escoge un fichero")
 
     if uploaded_file:
     # Get the file extension
