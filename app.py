@@ -68,7 +68,7 @@ background-size: cover;
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-inp = st.text_input("Enter a prompt and let AI craft stories, poems, code, and more.", "")
+inp = st.text_input("Inicia aquí tu conversación.", "")
 
 # Function to scrape data
 def scrape_data(url):
