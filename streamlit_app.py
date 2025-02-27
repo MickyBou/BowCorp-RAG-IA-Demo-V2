@@ -17,9 +17,10 @@ st.text('Web Scraping with Pandas and Streamlit, Gemini, Mistral, and Phi-3')
 # Model = st.selectbox("Select your prefered model:", ["GEMINI", "MISTRAL8X", "PHI-3", "Custom Models"])
 
 Model = "GEMINI"
+tkey = GOOGLE_API_KEY
 
 if Model == "GEMINI":
-    tkey = st.text_input("Your Token or API key here:", "")
+#    tkey = st.text_input("Your Token or API key here:", "")
 
 
     # Button to trigger scraping
