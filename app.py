@@ -11,6 +11,9 @@ import docx2txt
 import csv
 from huggingface_hub import InferenceClient
 
+st.set_page_config("BowCorp RAG IA")
+st.header("BowCorp RAG IA - Demo V2")
+
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
 st.text('Escoge tu fuente/fuentes de conocimiento:')
 st.text(' · Internet (Por defecto)\n · Una URL concreta\n · Un documento\n')
