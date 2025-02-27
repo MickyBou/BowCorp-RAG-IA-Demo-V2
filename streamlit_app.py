@@ -19,10 +19,6 @@ st.text('Web Scraping with Pandas and Streamlit, Gemini, Mistral, and Phi-3')
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
 
-if Model == "GEMINI":
-#    tkey = st.text_input("Your Token or API key here:", "")
-
-
     # Button to trigger scraping
     # if st.button('Scrape Data'):
     #     if url:
@@ -73,72 +69,6 @@ if Model == "GEMINI":
     def gai(inp):
         return model.generate_content(inp).text
 
-################################################################################################################
-
-else:
-    tkey = st.text_input("HuggingFace token here:", "")
-
-    if Model == "MISTRAL8X":
-        mkey= "mistralai/Mixtral-8x7B-Instruct-v0.1"
-    elif Model == "PHI-3":
-        mkey = "microsoft/Phi-3-mini-4k-instruct"
-    else:
-        mkey = st.text_input("Your HuggingFace Model String here:", "")
-
-    def format_prompt(message, history):
-        prompt = ""
-        for user_prompt, bot_response in history:
-            prompt += f"[INST] {user_prompt} [/INST]"
-            prompt += f" {bot_response} "
-        prompt += f"[INST] {message} [/INST]"
-        return prompt
-
-    def generate(prompt, history=[], temperature=0.9, max_new_tokens=1024, top_p=0.95, repetition_penalty=1.0):
-        temperature = float(temperature)
-        if temperature < 1e-2:
-            temperature = 1e-2
-        top_p = float(top_p)
-
-        generate_kwargs = dict(
-            temperature=temperature,
-            max_new_tokens=max_new_tokens,
-            top_p=top_p,
-            repetition_penalty=repetition_penalty,
-            do_sample=True,
-            seed=42,
-        )
-
-        formatted_prompt = format_prompt(prompt, history)
-
-        client = InferenceClient(model= mkey, token=tkey)
-        stream = client.text_generation(formatted_prompt, **generate_kwargs, stream=True, details=True, return_full_text=False)
-        output = ""
-
-        for response in stream:
-            output += response.token.text
-        
-        output = output.replace("<s>", "").replace("</s>", "")
-        
-        yield output
-        return output
-
-
-    # history = []
-    # while True:
-    #     user_input = input("You: ")
-    #     if user_input.lower() == "off":
-    #         break
-    #     history.append((user_input, "")) 
-    #     for response in generate(user_input, history):
-    #         print("Bot:", response)
-
-    def gai(query):
-        x=''
-        for response in generate(query):
-            x+=response
-        return x
-    
-################################################################################################################
 
 
 # bg image
