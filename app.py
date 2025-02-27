@@ -148,7 +148,7 @@ uploaded_file = None
 if file_input:
     # Add file uploader
     st.write("Sube un fichero PDF, TXT, o DOCX para extraer el texto.")
-    uploaded_file = st.file_uploader("Escoge un fichero")
+    uploaded_file = st.file_uploader("Escoge un fichero", accept_multiple_files=True)
 
     if uploaded_file:
     # Get the file extension
@@ -192,7 +192,6 @@ if st.button("Generate"):
         # st.write(paragraph)
 
         inp = paragraph + ' ' +"Take the given data above, as information and generate a response based on this prompt: " + inp
-        inp = inp + "Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in provided context don't provide the wrong answer\n\nContext:\n {context}?\nQuestion: \n{question}\nAnswer:"
 
     if sp_prompt:
         inp = inp + " " + sp_prompt
