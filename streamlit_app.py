@@ -11,8 +11,9 @@ import csv
 from huggingface_hub import InferenceClient
 
 st.title(':crystal_ball: BowCorp RAG IA - Demo V2')
-st.text('Escoje tu fuente de conocimiento:')
-st.text('· Internet (Por defecto)\n · Una URL concreta (Use Website Input)\n · Un documento (Use file input)')
+st.text('Escoje tu fuente/fuentes de conocimiento:')
+st.text(' · Internet (Por defecto)\n · Una URL concreta (Use Website Input)\n · Un documento (Use file input)\n')
+st.text('Escoje además opcionalmente un Prompt especial (Use special prompt input):')
 
 Model = "GEMINI"
 tkey = st.secrets["GOOGLE_API_KEY"]
