@@ -191,7 +191,8 @@ if st.button("Generate"):
         # st.write(scraped_data)
         # st.write(paragraph)
 
-        inp = paragraph + ' ' +"Take the given data above, as information and generate a response based on this prompt: " + inp       
+        inp = paragraph + ' ' +"Take the given data above, as information and generate a response based on this prompt: " + inp
+        inp = inp + "Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in provided context don't provide the wrong answer\n\nContext:\n {context}?\nQuestion: \n{question}\nAnswer:"
 
     if sp_prompt:
         inp = inp + " " + sp_prompt
