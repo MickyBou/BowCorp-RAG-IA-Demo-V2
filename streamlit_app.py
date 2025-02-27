@@ -10,7 +10,7 @@ import docx2txt
 import csv
 from huggingface_hub import InferenceClient
 
-st.title('👀 AI Playground ')
+st.title('👀 :black_circle: AI Playground ')
 st.text('Web Scraping with Gemini')
 
 Model = "GEMINI"
