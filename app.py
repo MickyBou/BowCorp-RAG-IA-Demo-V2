@@ -145,15 +145,6 @@ if url_input:
 file_input = st.checkbox("Utilizar fichero")
 uploaded_file = None
 
-sp_prompt = ""
-prompt_input = st.checkbox("Usar indicación especial")
-if prompt_input:
-    sp_prompt = st.selectbox("Indicación especial (opcional):", [
-        "Prompt A: Intenta resumir tu respuesta en 5 líneas.",
-        "Prompt B: Responde de la forma más extensa posible.",
-        "Prompt C: Por favor, responde en Catalán."
-    ])
-
 if file_input:
     # Add file uploader
     st.write("Sube un fichero PDF, TXT, o DOCX para extraer el texto.")
@@ -176,6 +167,15 @@ if file_input:
 
             else:
                 st.error("Formato de fichero erróneo.")
+
+sp_prompt = ""
+prompt_input = st.checkbox("Usar indicación especial")
+if prompt_input:
+    sp_prompt = st.selectbox("Indicación especial (opcional):", [
+        "Prompt A: Intenta resumir tu respuesta en 5 líneas.",
+        "Prompt B: Responde de la forma más extensa posible.",
+        "Prompt C: Por favor, responde en Catalán."
+    ])
 
 output = ''
 previous_responses = []
