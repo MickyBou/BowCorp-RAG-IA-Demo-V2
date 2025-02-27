@@ -52,20 +52,18 @@ genai.configure(api_key=tkey)
 def gai(inp):
     return model.generate_content(inp).text
 
-
-
 # bg image
-# page_bg_img = """
-# <style>
-# [data-testid="stAppViewContainer"] {
-# background-image: url(
-# https://cdn.wallpapersafari.com/41/41/vIdSZT.jpg
-# );
-# background-size: cover;
-# }
-# </style>
-# """
-# st.markdown(page_bg_img, unsafe_allow_html=True)
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"] {
+background-image: url(
+https://raw.githubusercontent.com/MickyBou/Playground/refs/heads/main/5968949.jpg
+);
+background-size: cover;
+}
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 inp = st.text_input("Enter a prompt and let AI craft stories, poems, code, and more.", "")
 
