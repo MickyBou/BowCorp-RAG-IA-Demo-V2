@@ -24,17 +24,17 @@ if Model == "GEMINI":
 
 
     # Button to trigger scraping
-    if st.button('Scrape Data'):
-         if url:
-             if 'https://' not in url:
-                 url = 'https://' + url
-             scraped_data = scrape_data(url)
-             paragraph = ' '.join(scraped_data['Text'].dropna())
-             st.write(scraped_data)
-             st.write(paragraph)
-        
-         else:
-             st.write('Please enter a valid website URL')
+    # if st.button('Scrape Data'):
+    #     if url:
+    #         if 'https://' not in url:
+    #             url = 'https://' + url
+    #         scraped_data = scrape_data(url)
+    #         paragraph = ' '.join(scraped_data['Text'].dropna())
+    #         st.write(scraped_data)
+    #         st.write(paragraph)
+    #    
+    #     else:
+    #         st.write('Please enter a valid website URL')
 
 
     # Set up the model
